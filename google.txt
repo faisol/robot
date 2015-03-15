@@ -53,9 +53,9 @@ Library    Selenium2Library
     Click Button    btnG
     Wait Until Page Contains    มหาวิทยาลัยราชภัฏสวนสุนันทา
     Close Browser
-ทดสอบค้นหาว่า อู่ทองนอก
+ทดสอบค้นหาว่า สาธิต
     Open Browser    http:\\www.google.com
-    Input Text    lst-ib    อู่ทองนอก
+    Input Text    lst-ib    สาธิต
     Click Button    btnG
     Wait Until Page Contains    มหาวิทยาลัยราชภัฏสวนสุนันทา
     Close Browser
