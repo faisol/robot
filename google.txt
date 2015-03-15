@@ -32,33 +32,21 @@ Robot Framework Assistant:
 Library    Selenium2Library
 
 *** Variable ***
-
-
+${WEB GOOGLE}    http:\\www.google.com
+${SEARCH TEXT BOX}    lst-ib
+${SERCH BUTTOM}    btnG
 *** Testcases ***
 ทดสอบค้นหาคำว่า สวนสุนันทา
-    Open Browser    http:\\www.google.com
-    Input Text    lst-ib    สวนสุนันทา
-    Click Button    btnG
-    Wait Until Page Contains    มหาวิทยาลัยราชภัฏสวนสุนันทา
-    Close Browser
-ทดสอบค้นหาว่า สุนันทา
-    Open Browser    http:\\www.google.com
-    Input Text    lst-ib    สุนันทา
-    Click Button    btnG
-    Wait Until Page Contains    มหาวิทยาลัยราชภัฏสวนสุนันทา
-    Close Browser
-ทดสอบค้นหาว่า ssru
-    Open Browser    http:\\www.google.com
-    Input Text    lst-ib    ssru
-    Click Button    btnG
-    Wait Until Page Contains    มหาวิทยาลัยราชภัฏสวนสุนันทา
-    Close Browser
-ทดสอบค้นหาว่า สาธิต
-    Open Browser    http:\\www.google.com
-    Input Text    lst-ib    สาธิต
-    Click Button    btnG
-    Wait Until Page Contains    มหาวิทยาลัยราชภัฏสวนสุนันทา
-    Close Browser
+    [Template]    Test Search Google
+    สวนสุนันทา     มหาวิทยาลัยราชภัฏสวนสุนันทา
+    สุนันทา    มหาวิทยาลัยราชภัฏสวนสุนันทา
+    ssru    มหาวิทยาลัยราชภัฏสวนสุนันทา
+
 *** Keywords ***
-
-
+Test Search Google
+    [Arguments]    ${INPUT}    ${EXPECT RESULT}
+    Open Browser    ${WEB GOOGLE}
+    Input Text    ${SEARCH TEXT BOX}    ${INPUT}
+    Click Button    ${SERCH BUTTOM}
+    Wait Until Page Contains    ${EXPECT RESULT}
+    Close Browser
